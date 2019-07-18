@@ -2,8 +2,8 @@ var yourClass;
 
 class CategoryInfo {
     constructor(weight) {
-        this.weight = weight;       // category weight
-        this.yourScore = 0.0; // your score
+        this.weight = weight;  // category weight
+        this.yourScore = 0.0;  // your score
         this.maxScore = 0.0;   // potential score
     }
 
@@ -22,8 +22,8 @@ class CscClass {
         this.map = new Map();
         for (let i = 0; i < this.category.length; i++) {
             // create new category to hold weight and scores
-            let info = new CategoryInfo(this.breakdown)
-            map.set(category, info);
+            let info = new CategoryInfo(this.breakdown[i])
+            this.map.set(this.category[i], info);
         }
     }
 }
@@ -39,14 +39,14 @@ function classSwitch(choice) {
             break;
         }
         case "2": case "'2'": {
-            category = ["Quiz", "Assignment", "Exam1", "Exam2", "Lab"];
-            breakdown = [.1, .3, .2, .2, .2];
+            category = ["Quiz", "Assignment", "Exam1", "Exam2"];
+            breakdown = [.1, .5, .2, .2];
             string = "CSC 325  Algorithms\n";
             break;
         }
         case "3": case "'3'": {
-            category = ["Quiz", "Assignment", "Exam1", "Exam2", "Lab"];
-            breakdown = [.1, .3, .2, .2, .2];
+            category = ["Quiz", "Assignment", "Exam1", "Exam2"];
+            breakdown = [.1, .5, .2, .2];
             string = "CSC 333  Languages and Machines\n";
             break;
         }
@@ -54,15 +54,16 @@ function classSwitch(choice) {
     yourClass = new CscClass(category, breakdown, string)
 }
 
-classSwitch("1");
+classSwitch("2");
 console.log(yourClass.string);
-// REFERENCE ERROR: map is not defined
-console.log(yourClass.map.get("Quiz"));
-// yourClass.category.forEach(category => {
-//     console.log("your score: " + yourClass.map.get(category).yourScore
-//         + "/" + yourClass.map.get(category).maxScore
-//         + ", weight: " + yourClass.map.get(category).weight)
-// });
+yourClass.category.forEach(category => {
+    let formatSpace = (11 - category.length);
+    // add space at end of category name for formatted printing
+    let name = category + " score:" + (" ".repeat(formatSpace));
+    console.log(name + yourClass.map.get(category).yourScore
+        + "/" + yourClass.map.get(category).maxScore
+        + ", weight: " + yourClass.map.get(category).weight * 100 + "%")
+});
 
 function getInfo() {
 
