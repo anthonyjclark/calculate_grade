@@ -54,16 +54,6 @@ function classSwitch(choice) {
     yourClass = new CscClass(category, breakdown, string)
 }
 
-classSwitch("2");
-console.log(yourClass.string);
-yourClass.category.forEach(category => {
-    let formatSpace = (11 - category.length);
-    // add space at end of category name for formatted printing
-    let name = category + " score:" + (" ".repeat(formatSpace));
-    console.log(name + yourClass.map.get(category).yourScore
-        + "/" + yourClass.map.get(category).maxScore
-        + ", weight: " + yourClass.map.get(category).weight * 100 + "%")
-});
 
 function getInfo() {
 
@@ -126,3 +116,37 @@ var dataString = "Lab 06: Debugging\n"
     + "10.0 / 10.0\n"
     + "Quiz 11: Array List	\n"
     + "10.0 / 10.0\n";
+
+
+classSwitch("1");
+console.log(yourClass.string);
+var stringArray = dataString.split("\n");
+for (let i = 0; i < stringArray.length; i++) {
+    let wordArray = stringArray[i].split(" ");
+    if (yourClass.category.includes(wordArray[0])
+        || wordArray[0] == "Exam") {
+        // grab wordArray[0]
+        let category = wordArray[0] // for semantics
+        // Exam has 2 entries (Exam1, Exam2)
+        if (wordArray[0] == "Exam") {
+            category += parseInt(wordArray[1]);
+        }
+        // grab stringArray[i+1] parse yourScore and MaxScore from it
+        let scoreArray = stringArray[i + 1].split(" ");
+        let your_score = parseFloat(scoreArray[0]); // for semantics and changing to number
+        let max_score = parseFloat(scoreArray[2]);  // for semantics and changing to number
+        // add scores to map
+        yourClass.map.get(category).addToYourScore(your_score);
+        yourClass.map.get(category).addToMaxScore(max_score);
+    }
+}
+yourClass.category.forEach(category => {
+    let formatSpace = (11 - category.length);
+    // add space at end of category name for formatted printing
+    let name = category + " score:" + (" ".repeat(formatSpace));
+    let score = yourClass.map.get(category).yourScore
+        + "/" + yourClass.map.get(category).maxScore;
+    score = score + (" ".repeat(10 - score.length)); // formatted printing
+    console.log(name + score
+        + "  --> weight: " + yourClass.map.get(category).weight * 100 + "%")
+});
