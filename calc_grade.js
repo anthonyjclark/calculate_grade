@@ -1,64 +1,6 @@
 var yourClass;
+var dataString;
 
-{ // dataString
-    var dataString = "Lab 06: Debugging\n"
-        + "1.95 / 2.0\n"
-        + "JUL 08JUL 09 AT 11:00PM\n"
-        + "Exam 1, Part 1	\n"
-        + "9.5 / 10.0\n"
-        + "JUL 03JUL 03 AT 11:00AM\n"
-        + "Assignment 03: Dynamic Int Array List	\n"
-        + "25.0 / 28.0\n"
-        + "JUN 24JUL 01 AT 11:00PM\n"
-        + "Lab 05: Classes	\n"
-        + "2.0 / 2.0\n"
-        + "11 Hours, 51 Minutes Late\n"
-        + "JUN 25JUN 26 AT 11:00PM\n"
-        + "LATE DUE DATE: JUN 28 AT 11:00PM\n"
-        + "Assignment 02: Char Stack	\n"
-        + "20.0 / 20.0\n"
-        + "JUN 17JUN 25 AT 11:00PM\n"
-        + "LATE DUE DATE: JUN 27 AT 11:00PM\n"
-        + "Lab 04: Working with Files	\n"
-        + "2.0 / 2.0\n"
-        + "JUN 18JUN 24 AT 11:00PM\n"
-        + "Lab 03: Vectors	\n"
-        + "2.0 / 2.0\n"
-        + "JUN 17JUN 18 AT 11:00PM\n"
-        + "Assignment 01: Developing in C++	\n"
-        + "10.0 / 10.0\n"
-        + "JUN 10JUN 17 AT 11:00PM\n"
-        + "Lab 02: Developing with VS Code	\n"
-        + "2.0 / 2.0\n"
-        + "JUN 11JUN 12 AT 11:00PM\n"
-        + "Lab 01: Hello 232	\n"
-        + "2.0 / 2.0\n"
-        + "JUN 10JUN 11 AT 11:00PM\n"
-        + "Quiz 01: Introduction	\n"
-        + "10.0 / 10.0\n"
-        + "Quiz 03: Structured Data	\n"
-        + "10.0 / 10.0\n"
-        + "Quiz 02: Questions	\n"
-        + "10.0 / 10.0\n"
-        + "Quiz 04: Queues	\n"
-        + "10.0 / 10.0\n"
-        + "Quiz 05: Asymptotic Notation	\n"
-        + "10.0 / 10.0\n"
-        + "Quiz 06: Stacks and Queues	\n"
-        + "10.0 / 10.0\n"
-        + "Quiz 07: Work Day Participation	\n"
-        + "10.0 / 10.0\n"
-        + "Quiz 08: Memory Diagram	\n"
-        + "10.0 / 10.0\n"
-        + "Quiz 09: Rule of Five	\n"
-        + "7.6 / 10.0\n"
-        + "Exam 1, Part 2	\n"
-        + "45.5 / 50.0\n"
-        + "Quiz 10: Attend Guest Lecture	\n"
-        + "10.0 / 10.0\n"
-        + "Quiz 11: Array List	\n"
-        + "10.0 / 10.0\n";
-}
 { // dataString2
     var dataString2 =
         "    Skip to content\n"
@@ -423,54 +365,63 @@ function getInfo(data) {
 
 // printing formatted information
 function print() {
-    console.log("\n" + yourClass.string);
-    console.log("*************************************************************************");
-    console.log("Category     Your Score    Your %  Max %");
-    console.log("----------------------------------------");
+    let display = document.getElementById('display');
+    display.innerHTML += ("\n\n" + yourClass.string);
+    display.innerHTML += ("\n*************************************************************************");
+    display.innerHTML += ("\nCategory     Your Score    Your %  Max %");
+    display.innerHTML += ("\n----------------------------------------");
     for (const [name, category] of yourClass.map) {
         let title = name + ":" + (" ".repeat(12 - name.length));
         let your_score = category.isEmpty() ? "    0" : category.yourScore.toPrecision(4);
         let max_score = category.isEmpty() ? "0    " : category.maxScore.toPrecision(4);
         let percentage = category.isEmpty() ? "    0" : category.getPercentage().toPrecision(4);
         let ifIncomplete = category.isEmpty() ? " Not yet completed." : "";
-        console.log(title
+        display.innerHTML += ("\n" + title
             + your_score
             + "/" + max_score + "   "
             + percentage + "%   "
             + category.weight + "% "
             + ifIncomplete);
     }
-    console.log("----------------------------------------");
-    console.log("Weighted Score:            "
+    display.innerHTML += ("\n----------------------------------------");
+    display.innerHTML += ("\nWeighted Score:            "
         + yourClass.getWeightedScore().toPrecision(4)
         + "%  100%");
-    console.log("Current  Score:            "
+    display.innerHTML += ("\nCurrent  Score:            "
         + yourClass.getCurrentScore().toPrecision(4)
         + "%  100%");
-    console.log("*************************************************************************");
-    console.log("\nNOTE:\n"
+    display.innerHTML += ("\n*************************************************************************");
+    display.innerHTML += ("\n\nNOTE:\n"
         + "Weighted score does not include future material.\n"
         + "It only reflects what you have earned thus far.\n"
         + "To have 100%, you must have all material completed.\n"
-        + "For example, exam 2 would not be included until your last day of class.\n");
+        + "For example, Exam 2 would not be included until your last day of class.\n");
     if (yourClass.hasNoSubmission()) {
-        console.log("The following items have a 'No Submission' status:");
-        console.log("--------------");
+        display.innerHTML += ("\nThe following items have a 'No Submission' status:");
+        display.innerHTML += ("\n--------------");
         for (const [name, category] of yourClass.map) {
             for (const item of category.noSubmission) {
-                console.log(item);
+                display.innerHTML += ("\n" + item);
             }
         }
-        console.log("--------------");
-        console.log("Please check with me if you think this is incorrect.\n"
+        display.innerHTML += ("\n--------------");
+        display.innerHTML += ("\nPlease check with me if you think this is incorrect.\n"
             + "You can find the total missed points on the associated assignment page.\n"
             + "You must calculate that in your final grade yourself, as this calculator will not.");
     }
 }
 
+document.getElementById('submit').addEventListener("click", function () {
+    let data = document.getElementById('data');
+    dataString = data.value;
+    getInfo(dataString);
+    console.log(dataString);
+    print();
+});
+
 // testing program
 // classSwitch("1");
 // getInfo(dataString2);
-classSwitch("2");
-getInfo(dataString3);
-print();
+// classSwitch("2");
+// getInfo(dataString3);
+classSwitch("1");
