@@ -59,7 +59,7 @@ var yourClass;
         + "Quiz 11: Array List	\n"
         + "10.0 / 10.0\n";
 }
-{ // dataString2"
+{ // dataString2
     var dataString2 =
         "    Skip to content\n"
         + "gradescope\n"
@@ -177,6 +177,132 @@ var yourClass;
         + "10.0 / 10.0\n"
         + "	\n";
 }
+{ // dataString3
+    var dataString3 =
+        "    Skip to content\n"
+        + "gradescope\n"
+        + "CSC 325\n"
+        + "Algorithms and Advanced Data Structures\n"
+        + "\n"
+        + "    Dashboard\n"
+        + "    Regrade Requests\n"
+        + "\n"
+        + "Instructor\n"
+        + "\n"
+        + "    Anthony Clark\n"
+        + "\n"
+        + "Account\n"
+        + "CSC 325\n"
+        + "Spring 2019\n"
+        + "Description\n"
+        + "\n"
+        + "This course should be taken as soon as possible after CSC 232. Algorithms and advanced data structures, including graphs, heaps, self-adjusting data structures, set representations and dynamic programming. Sample applications, including memory management and data compression. Introduction to NP-complete problems. Correctness proofs and efficiency analysis are stressed. May be taught concurrently with CSC 611. Cannot receive credit for both CSC 611 and CSC 325.\n"
+        + "Assignments List\n"
+        + "Name	Status	ReleasedDue (CDT)\n"
+        + "Assignment 07, Hash Tables	\n"
+        + "19.0 / 20.0\n"
+        + "	\n"
+        + "Apr 26May 06 at 11:00PM\n"
+        + "Assignment 06, Minimum Spanning Trees	\n"
+        + "20.0 / 20.0\n"
+        + "	\n"
+        + "Apr 17Apr 25 at 11:00PM\n"
+        + "Assignment 05, Dijkstra's	\n"
+        + "20.0 / 20.0\n"
+        + "	\n"
+        + "Apr 10Apr 11 at 11:00PM\n"
+        + "Assignment 04, Friend Circles and Graphs	\n"
+        + "20.0 / 20.0\n"
+        + "	\n"
+        + "Mar 29Apr 03 at 11:00PM\n"
+        + "Assignment 03, Quicksort	\n"
+        + "25.0 / 25.0\n"
+        + "	\n"
+        + "Mar 04Mar 18 at 11:00PM\n"
+        + "Assignment 02, Master Theorem	\n"
+        + "16.4586 / 20.0\n"
+        + "	\n"
+        + "Feb 20Feb 27 at 11:00PM\n"
+        + "Assignment 01, Running Time and Time Complexity	\n"
+        + "15.0 / 15.0\n"
+        + "	\n"
+        + "Jan 28Feb 04 at 11:00PM\n"
+        + "Quiz 01, Introduction (2019-01-16)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 02, Loop Invariant and Merge (2019-01-23)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 03, Recursion Tree (2019-02-01)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 04, Closest Split Pair (2019-02-06)	\n"
+        + "9.5 / 10.0\n"
+        + "	\n"
+        + "Quiz 05, Master Theorem (2019-02-08)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 06, Master Theorem Proof (2019-02-11) 	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 07, Probability Review (2019-02-15)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 08, Quicksort Partition (2019-02-20)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 09, Quicksort Running Time (2019-02-25)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 10, Quickselect (2019-02-27)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 11, Graph Search (2019-03-04)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Exam 1	\n"
+        + "46.2 / 50.0\n"
+        + "	\n"
+        + "Quiz 12, BFS (2019-03-22)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 13, Topological Ordering (2019-03-25)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 14, Strongly Connected Components (2019-03-27)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 15, Kosaraju's Algorithm (2019-03-29)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 16, Dijkstra's Example (2019-04-01)	\n"
+        + "9.5 / 10.0\n"
+        + "	\n"
+        + "Quiz 17, Heaps (2019-04-03)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 18, Binary Search Trees (2019-04-10)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 19, Red-Black Trees Insert (2019-04-12)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 20, Greedy Scheduling (2019-04-15)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 22, Hash Tables (2019-04-22)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Quiz 21, Minimum Spanning Tree (2019-04-15)	\n"
+        + "10.0 / 10.0\n"
+        + "	\n"
+        + "Exam 2, Part 1	\n"
+        + "9.0 / 10.0\n"
+        + "	\n"
+        + "Exam 2, Part 2	\n"
+        + "59.5 / 61.25\n"
+        + "	\n";
+}
 
 class CategoryInfo {
     constructor(weight) {
@@ -225,13 +351,18 @@ class CscClass {
         }
         return score;
     }
-
     getWeightedScore() {
         let score = 0.0;
         for (const [key, category] of this.map) {
             score += category.getPercentage();
         }
         return score;
+    }
+    hasNoSubmission() {
+        for (const [name, category] of this.map) {
+            if (category.noSubmission.length > 0) { return true; }
+        }
+        return false;
     }
 }
 
@@ -313,29 +444,33 @@ function print() {
     console.log("Weighted Score:            "
         + yourClass.getWeightedScore().toPrecision(4)
         + "%  100%");
-    console.log("Current Score:             "
+    console.log("Current  Score:            "
         + yourClass.getCurrentScore().toPrecision(4)
         + "%  100%");
     console.log("*************************************************************************");
     console.log("\nNOTE:\n"
-        + "Weighted grade does not include future material.\n"
+        + "Weighted score does not include future material.\n"
         + "It only reflects what you have earned thus far.\n"
         + "To have 100%, you must have all material completed.\n"
         + "For example, exam 2 would not be included until your last day of class.\n");
-    console.log("The following items have a 'No Submission' status:");
-    console.log("----------------------------------------");
-    for (const [name, category] of yourClass.map) {
-        for (const item of category.noSubmission) {
-            console.log(item);
+    if (yourClass.hasNoSubmission()) {
+        console.log("The following items have a 'No Submission' status:");
+        console.log("--------------");
+        for (const [name, category] of yourClass.map) {
+            for (const item of category.noSubmission) {
+                console.log(item);
+            }
         }
+        console.log("--------------");
+        console.log("Please check with me if you think this is incorrect.\n"
+            + "You can find the total missed points on the associated assignment page.\n"
+            + "You must calculate that in your final grade yourself, as this calculator will not.");
     }
-    console.log("----------------------------------------");
-    console.log("Please check with me if you think this is incorrect.\n"
-        + "You can find the total missed points on the associated assignment page.\n"
-        + "You must calculate that in your final grades yourself, as this calculator will not.");
 }
 
 // testing program
-classSwitch("1");
-getInfo(dataString2);
+// classSwitch("1");
+// getInfo(dataString2);
+classSwitch("2");
+getInfo(dataString3);
 print();
