@@ -1,250 +1,3 @@
-var yourClass;
-var dataString;
-
-{ // dataString2
-    var dataString2 =
-        "    Skip to content\n"
-        + "gradescope\n"
-        + "CSC 232\n"
-        + "Data Structures\n"
-        + "\n"
-        + "    Dashboard\n"
-        + "    Regrade Requests\n"
-        + "\n"
-        + "Instructor\n"
-        + "\n"
-        + "    Anthony Clark\n"
-        + "\n"
-        + "Account\n"
-        + "CSC 232\n"
-        + "Summer 2019\n"
-        + "Description\n"
-        + "\n"
-        + "A continuation of CSC 131. Topics will include: algorithm design; complexity analysis; abstract data types and encapsulation; basic data structures and their application, including stacks, queues, linked lists and binary trees; dynamic memory allocation; recursion; sorting and searching; debugging techniques.\n"
-        + "Assignments List\n"
-        + "Name	Status	ReleasedDue (CDT)\n"
-        + "No Submission\n"
-        + "	\n"
-        + "4 days, 23 hours left\n"
-        + "Jul 18Jul 23 at 11:00PM\n"
-        + "Lab 08: Linked Lists	\n"
-        + "No Submission\n"
-        + "	\n"
-        + "Jul 15Jul 16 at 11:00PM\n"
-        + "Assignment 04: Array List	\n"
-        + "No Submission\n"
-        + "	\n"
-        + "Jul 08Jul 15 at 11:00PM\n"
-        + "Lab 07: Exceptions and Templates	\n"
-        + "No Submission\n"
-        + "	\n"
-        + "Jul 10Jul 11 at 11:00PM\n"
-        + "Lab 06: Debugging	\n"
-        + "1.95 / 2.0\n"
-        + "	\n"
-        + "Jul 08Jul 09 at 11:00PM\n"
-        + "Exam 1, Part 1	\n"
-        + "9.5 / 10.0\n"
-        + "	\n"
-        + "Jul 03Jul 03 at 11:00AM\n"
-        + "Assignment 03: Dynamic Int Array List	\n"
-        + "25.0 / 28.0\n"
-        + "	\n"
-        + "Jun 24Jul 01 at 11:00PM\n"
-        + "Lab 05: Classes	\n"
-        + "2.0 / 2.0\n"
-        + "11 Hours, 51 Minutes Late\n"
-        + "	\n"
-        + "Jun 25Jun 26 at 11:00PM\n"
-        + "Late Due Date: Jun 28 at 11:00PM\n"
-        + "Assignment 02: Char Stack	\n"
-        + "20.0 / 20.0\n"
-        + "	\n"
-        + "Jun 17Jun 25 at 11:00PM\n"
-        + "Late Due Date: Jun 27 at 11:00PM\n"
-        + "Lab 04: Working with Files	\n"
-        + "2.0 / 2.0\n"
-        + "	\n"
-        + "Jun 18Jun 24 at 11:00PM\n"
-        + "Lab 03: Vectors	\n"
-        + "2.0 / 2.0\n"
-        + "	\n"
-        + "Jun 17Jun 18 at 11:00PM\n"
-        + "Assignment 01: Developing in C++	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Jun 10Jun 17 at 11:00PM\n"
-        + "Lab 02: Developing with VS Code	\n"
-        + "2.0 / 2.0\n"
-        + "	\n"
-        + "Jun 11Jun 12 at 11:00PM\n"
-        + "Lab 01: Hello 232	\n"
-        + "2.0 / 2.0\n"
-        + "	\n"
-        + "Jun 10Jun 11 at 11:00PM\n"
-        + "Quiz 01: Introduction	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 03: Structured Data	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 02: Questions	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 04: Queues	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 05: Asymptotic Notation	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 06: Stacks and Queues	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 07: Work Day Participation	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 08: Memory Diagram	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 09: Rule of Five	\n"
-        + "7.6 / 10.0\n"
-        + "	\n"
-        + "Exam 1, Part 2	\n"
-        + "45.5 / 50.0\n"
-        + "	\n"
-        + "Quiz 10: Attend Guest Lecture	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 11: Array List	\n"
-        + "10.0 / 10.0\n"
-        + "	\n";
-}
-{ // dataString3
-    var dataString3 =
-        "    Skip to content\n"
-        + "gradescope\n"
-        + "CSC 325\n"
-        + "Algorithms and Advanced Data Structures\n"
-        + "\n"
-        + "    Dashboard\n"
-        + "    Regrade Requests\n"
-        + "\n"
-        + "Instructor\n"
-        + "\n"
-        + "    Anthony Clark\n"
-        + "\n"
-        + "Account\n"
-        + "CSC 325\n"
-        + "Spring 2019\n"
-        + "Description\n"
-        + "\n"
-        + "This course should be taken as soon as possible after CSC 232. Algorithms and advanced data structures, including graphs, heaps, self-adjusting data structures, set representations and dynamic programming. Sample applications, including memory management and data compression. Introduction to NP-complete problems. Correctness proofs and efficiency analysis are stressed. May be taught concurrently with CSC 611. Cannot receive credit for both CSC 611 and CSC 325.\n"
-        + "Assignments List\n"
-        + "Name	Status	ReleasedDue (CDT)\n"
-        + "Assignment 07, Hash Tables	\n"
-        + "19.0 / 20.0\n"
-        + "	\n"
-        + "Apr 26May 06 at 11:00PM\n"
-        + "Assignment 06, Minimum Spanning Trees	\n"
-        + "20.0 / 20.0\n"
-        + "	\n"
-        + "Apr 17Apr 25 at 11:00PM\n"
-        + "Assignment 05, Dijkstra's	\n"
-        + "20.0 / 20.0\n"
-        + "	\n"
-        + "Apr 10Apr 11 at 11:00PM\n"
-        + "Assignment 04, Friend Circles and Graphs	\n"
-        + "20.0 / 20.0\n"
-        + "	\n"
-        + "Mar 29Apr 03 at 11:00PM\n"
-        + "Assignment 03, Quicksort	\n"
-        + "25.0 / 25.0\n"
-        + "	\n"
-        + "Mar 04Mar 18 at 11:00PM\n"
-        + "Assignment 02, Master Theorem	\n"
-        + "16.4586 / 20.0\n"
-        + "	\n"
-        + "Feb 20Feb 27 at 11:00PM\n"
-        + "Assignment 01, Running Time and Time Complexity	\n"
-        + "15.0 / 15.0\n"
-        + "	\n"
-        + "Jan 28Feb 04 at 11:00PM\n"
-        + "Quiz 01, Introduction (2019-01-16)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 02, Loop Invariant and Merge (2019-01-23)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 03, Recursion Tree (2019-02-01)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 04, Closest Split Pair (2019-02-06)	\n"
-        + "9.5 / 10.0\n"
-        + "	\n"
-        + "Quiz 05, Master Theorem (2019-02-08)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 06, Master Theorem Proof (2019-02-11) 	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 07, Probability Review (2019-02-15)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 08, Quicksort Partition (2019-02-20)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 09, Quicksort Running Time (2019-02-25)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 10, Quickselect (2019-02-27)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 11, Graph Search (2019-03-04)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Exam 1	\n"
-        + "46.2 / 50.0\n"
-        + "	\n"
-        + "Quiz 12, BFS (2019-03-22)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 13, Topological Ordering (2019-03-25)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 14, Strongly Connected Components (2019-03-27)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 15, Kosaraju's Algorithm (2019-03-29)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 16, Dijkstra's Example (2019-04-01)	\n"
-        + "9.5 / 10.0\n"
-        + "	\n"
-        + "Quiz 17, Heaps (2019-04-03)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 18, Binary Search Trees (2019-04-10)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 19, Red-Black Trees Insert (2019-04-12)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 20, Greedy Scheduling (2019-04-15)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 22, Hash Tables (2019-04-22)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Quiz 21, Minimum Spanning Tree (2019-04-15)	\n"
-        + "10.0 / 10.0\n"
-        + "	\n"
-        + "Exam 2, Part 1	\n"
-        + "9.0 / 10.0\n"
-        + "	\n"
-        + "Exam 2, Part 2	\n"
-        + "59.5 / 61.25\n"
-        + "	\n";
-}
 
 class CategoryInfo {
     constructor(weight) {
@@ -312,31 +65,40 @@ class CscClass {
 function classSwitch(choice) {
     let category, breakdown, string;
     switch (choice) {
-        case "1": case "'1'": {
+        case "232": {
             category = ["Quiz", "Assignment", "Exam1", "Exam2", "Lab"];
             breakdown = [.1, .3, .2, .2, .2];
             string = "CSC 232  Data Structures\n";
             break;
         }
-        case "2": case "'2'": {
+        case "325": {
             category = ["Quiz", "Assignment", "Exam1", "Exam2"];
             breakdown = [.1, .5, .2, .2];
             string = "CSC 325  Algorithms\n";
             break;
         }
-        case "3": case "'3'": {
+        case "333": {
             category = ["Quiz", "Assignment", "Exam1", "Exam2"];
             breakdown = [.1, .5, .2, .2];
             string = "CSC 333  Languages and Machines\n";
             break;
         }
     }
-    yourClass = new CscClass(category, breakdown, string)
+    return new CscClass(category, breakdown, string)
 }
 
 // load info from dataString into CscClass yourClass
-function getInfo(data) {
+function getInfo(data, yourClass) {
     var lineArray = data.split("\n");
+    // if selectAll has been copied from Gradescope, an extra check can occur
+    // to make sure that content matches the selected course from drop down option
+    // line 3 will be "CSC ###", where ### must match selected course
+    // if selectAll has NOT been copied, ignore (check this with first line == "Skip")
+    if (lineArray[0] == "Skip to content") {
+        if (lineArray[2].substring(4, 7) != yourClass.string.substring(4, 7)) {
+            return false;
+        }
+    }
     for (let i = 0; i < lineArray.length; i++) {
         let wordArray = lineArray[i].split(" ");
         if (yourClass.category.includes(wordArray[0])
@@ -361,11 +123,13 @@ function getInfo(data) {
             }
         }
     }
+    return true;
 }
 
 // printing formatted information
-function print() {
+function print(yourClass) {
     let display = document.getElementById('display');
+    display.innerHTML = "";
     display.innerHTML += ("\n\n" + yourClass.string);
     display.innerHTML += ("\n*************************************************************************");
     display.innerHTML += ("\nCategory     Your Score    Your %  Max %");
@@ -376,6 +140,9 @@ function print() {
         let max_score = category.isEmpty() ? "0    " : category.maxScore.toPrecision(4);
         let percentage = category.isEmpty() ? "    0" : category.getPercentage().toPrecision(4);
         let ifIncomplete = category.isEmpty() ? " Not yet completed." : "";
+        if (category.noSubmission.length > 0) {
+            ifIncomplete = " Grade is not accurate.";
+        }
         display.innerHTML += ("\n" + title
             + your_score
             + "/" + max_score + "   "
@@ -412,16 +179,23 @@ function print() {
 }
 
 document.getElementById('submit').addEventListener("click", function () {
-    let data = document.getElementById('data');
-    dataString = data.value;
-    getInfo(dataString);
-    console.log(dataString);
-    print();
+    let dropDown = document.getElementById('option');
+    let option = dropDown.options[dropDown.selectedIndex].value;
+    let data = document.getElementById('data').value;
+    if (data) {
+        let yourClass = classSwitch(option);
+        // check if content matches course selection, if true: continue
+        if (getInfo(data, yourClass)) {
+            data = ""; // clear text box
+            print(yourClass);
+        }
+        else {
+            document.getElementById('display').innerHTML = "Content does not match selected course.";
+        }
+    }
 });
 
-// testing program
-// classSwitch("1");
-// getInfo(dataString2);
-// classSwitch("2");
-// getInfo(dataString3);
-classSwitch("1");
+// clear text box on DOM load
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById('data').value = "";
+});

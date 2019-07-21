@@ -4,14 +4,32 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Grade Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 
 <body>
     <h2>Welcome to Grade Calculator!</h2>
-    <textarea id="data"></textarea>
-    <input id="submit" type="submit" value="Submit" />
+    <div>
+        <select id="option">
+            <option disabled selected>Select Course for Grading</option>
+            <option value="232">CSC 232 Data Structures</option>
+            <option value="325">CSC 325 Algorithms</option>
+            <option value="333">CSC 333 Languages and Machines</option>
+        </select>
+    </div>
+    <div>
+        <textarea autofocus id="data" rows="7" cols="30" placeholder="Please copy and paste data in here.
+You may:
+select all (ctrl + a),
+copy (ctrl + c), and
+paste (ctrl + p)
+directly from Gradescope."></textarea>
+    </div>
+    <div>
+        <input id="submit" class="btn btn-success" type="submit" value="Submit" />
+    </div>
     <pre id="display"></pre>
+    <script src="calc_grade.js"></script>
 </body>
-<script src="calc_grade.js"></script>
 
 </html>
