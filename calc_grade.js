@@ -181,6 +181,10 @@ function print(yourClass) {
 document.getElementById('submit').addEventListener("click", function () {
     let dropDown = document.getElementById('option');
     let option = dropDown.options[dropDown.selectedIndex].value;
+    let display = document.getElementById('display');
+    if (!option) {
+        display.innerHTML = "Please select a course for grading.";
+    }
     let data = document.getElementById('data').value;
     if (data) {
         let yourClass = classSwitch(option);
@@ -190,7 +194,7 @@ document.getElementById('submit').addEventListener("click", function () {
             print(yourClass);
         }
         else {
-            document.getElementById('display').innerHTML = "Content does not match selected course.";
+            display.innerHTML = "Content does not match selected course.";
         }
     }
 });
