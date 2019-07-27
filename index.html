@@ -3,8 +3,10 @@
 
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Grade Calculator</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         .content {
             max-width: 600px;
@@ -25,18 +27,35 @@
                 <option value="333">CSC 333 Languages and Machines</option>
             </select>
         </div>
-        <div>
-            <textarea autofocus id="data" rows="7" cols="30" placeholder="Please copy and paste data in here.
+        <div id="submitWindow">
+            <div>
+                <textarea autofocus id="data" rows="7" cols="30" placeholder="Please copy and paste data in here.
 You may:
 select all (ctrl + a),
 copy (ctrl + c), and
 paste (ctrl + p)
 directly from Gradescope."></textarea>
+            </div>
+            <div>
+                <input id="submit" class="btn btn-success" type="submit" value="Submit" />
+            </div>
+            <pre id="display"></pre>
         </div>
-        <div>
-            <input id="submit" class="btn btn-success" type="submit" value="Submit" />
+        <div id="displayTable" class="d-none">
+            <table class="table table-hover text-center table-responsive">
+                <thead>
+                    <tr>
+                        <th class="text-left col-1">Category</th>
+                        <th>Your Score</th>
+                        <th>Your %</th>
+                        <th>Max %</th>
+                    </tr>
+                </thead>
+                <tbody id="scoreTable">
+
+                </tbody>
+            </table>
         </div>
-        <pre id="display"></pre>
         <script src="calc_grade.js"></script>
     </div>
 </body>

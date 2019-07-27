@@ -111,9 +111,12 @@ function getInfo(data, yourClass) {
             }
             // grab lineArray[i+1], parse yourScore and MaxScore from it
             let scoreArray = lineArray[i + 1].split(" ");
+            // if assignment has "no submission", add to category.noSubmission[]
             if (scoreArray[0] == "No") {
-                let num = parseInt(wordArray[1]);
+                let num = parseInt(wordArray[1]); //parseInt to exclude comma attached
                 yourClass.map.get(category).noSubmission.push(wordArray[0] + " " + num);
+            } else if (scoreArray[0] == "Submitted") {
+                continue; // if assignment has not yet been graded, ignore
             } else {
                 let your_score = parseFloat(scoreArray[0]); // for semantics and mutation to number
                 let max_score = parseFloat(scoreArray[2]);  // for semantics and mutation to number
@@ -126,56 +129,100 @@ function getInfo(data, yourClass) {
     return true;
 }
 
+// // printing formatted information
+// function print(yourClass) {
+//     let display = document.getElementById('display');
+//     display.innerHTML = "";
+//     display.innerHTML += ("\n\n" + yourClass.string);
+//     display.innerHTML += ("\n*************************************************************************");
+//     display.innerHTML += ("\nCategory     Your Score    Your %  Max %");
+//     display.innerHTML += ("\n----------------------------------------");
+//     for (const [name, category] of yourClass.map) {
+//         let title = name + ":" + (" ".repeat(12 - name.length));
+//         let your_score = category.isEmpty() ? "    0" : category.yourScore.toPrecision(4);
+//         let max_score = category.isEmpty() ? "0    " : category.maxScore.toPrecision(4);
+//         let percentage = category.isEmpty() ? "    0" : category.getPercentage().toPrecision(4);
+//         let ifIncomplete = category.isEmpty() ? " Not yet completed." : "";
+//         if (category.noSubmission.length > 0) {
+//             ifIncomplete = " Grade is not accurate.";
+//         }
+//         display.innerHTML += ("\n" + title
+//             + your_score
+//             + "/" + max_score + "   "
+//             + percentage + "%   "
+//             + category.weight + "% "
+//             + ifIncomplete);
+//     }
+//     display.innerHTML += ("\n----------------------------------------");
+//     display.innerHTML += ("\nWeighted Score:            "
+//         + yourClass.getWeightedScore().toPrecision(4)
+//         + "%  100%");
+//     display.innerHTML += ("\nCurrent  Score:            "
+//         + yourClass.getCurrentScore().toPrecision(4)
+//         + "%  100%");
+//     display.innerHTML += ("\n*************************************************************************");
+//     display.innerHTML += ("\n\nNOTE:\n"
+//         + "Weighted score does not include future material.\n"
+//         + "It only reflects what you have earned thus far.\n"
+//         + "To have 100%, you must have all material completed.\n"
+//         + "For example, Exam 2 would not be included until your last day of class.\n");
+//     if (yourClass.hasNoSubmission()) {
+//         display.innerHTML += ("\nThe following items have a 'No Submission' status:");
+//         display.innerHTML += ("\n--------------");
+//         for (const [name, category] of yourClass.map) {
+//             for (const item of category.noSubmission) {
+//                 display.innerHTML += ("\n" + item);
+//             }
+//         }
+//         display.innerHTML += ("\n--------------");
+//         display.innerHTML += ("\nPlease check with me if you think this is incorrect.\n"
+//             + "You can find the total missed points on the associated assignment page.\n"
+//             + "You must calculate that in your final grade yourself, as this calculator will not.");
+//     }
+// }
+
+function createRows(yourClass) {
+    let table = document.getElementById('scoreTable');
+    for (const [name, category] of yourClass.map) {
+        let row = document.createElement('tr');
+        let categoryName = document.createElement('td');
+        let yourScore = document.createElement('td');
+        let yourPercentage = document.createElement('td');
+        let maxPercentage = document.createElement('td');
+
+        let your_score = category.isEmpty() ? 0 : category.yourScore.toPrecision(4);
+        let max_score = category.isEmpty() ? 0 : category.maxScore.toPrecision(4);
+        let percentage = category.isEmpty() ? 0 : category.getPercentage().toPrecision(4);
+
+        if (category.isEmpty()) {
+            row.setAttribute("class", "table-info");
+        }
+
+        if (category.noSubmission.length > 0) {
+            row.setAttribute("class", "table-danger");
+        }
+
+        categoryName.innerText = name;
+        categoryName.setAttribute("class", "text-left");
+        yourScore.innerText = your_score + " / " + max_score;
+        yourPercentage.innerText = percentage + " %";
+        maxPercentage.innerText = category.weight + " %";
+
+        row.appendChild(categoryName);
+        row.appendChild(yourScore);
+        row.appendChild(yourPercentage);
+        row.appendChild(maxPercentage);
+        table.appendChild(row);
+    }
+}
+
 // printing formatted information
 function print(yourClass) {
-    let display = document.getElementById('display');
-    display.innerHTML = "";
-    display.innerHTML += ("\n\n" + yourClass.string);
-    display.innerHTML += ("\n*************************************************************************");
-    display.innerHTML += ("\nCategory     Your Score    Your %  Max %");
-    display.innerHTML += ("\n----------------------------------------");
-    for (const [name, category] of yourClass.map) {
-        let title = name + ":" + (" ".repeat(12 - name.length));
-        let your_score = category.isEmpty() ? "    0" : category.yourScore.toPrecision(4);
-        let max_score = category.isEmpty() ? "0    " : category.maxScore.toPrecision(4);
-        let percentage = category.isEmpty() ? "    0" : category.getPercentage().toPrecision(4);
-        let ifIncomplete = category.isEmpty() ? " Not yet completed." : "";
-        if (category.noSubmission.length > 0) {
-            ifIncomplete = " Grade is not accurate.";
-        }
-        display.innerHTML += ("\n" + title
-            + your_score
-            + "/" + max_score + "   "
-            + percentage + "%   "
-            + category.weight + "% "
-            + ifIncomplete);
-    }
-    display.innerHTML += ("\n----------------------------------------");
-    display.innerHTML += ("\nWeighted Score:            "
-        + yourClass.getWeightedScore().toPrecision(4)
-        + "%  100%");
-    display.innerHTML += ("\nCurrent  Score:            "
-        + yourClass.getCurrentScore().toPrecision(4)
-        + "%  100%");
-    display.innerHTML += ("\n*************************************************************************");
-    display.innerHTML += ("\n\nNOTE:\n"
-        + "Weighted score does not include future material.\n"
-        + "It only reflects what you have earned thus far.\n"
-        + "To have 100%, you must have all material completed.\n"
-        + "For example, Exam 2 would not be included until your last day of class.\n");
-    if (yourClass.hasNoSubmission()) {
-        display.innerHTML += ("\nThe following items have a 'No Submission' status:");
-        display.innerHTML += ("\n--------------");
-        for (const [name, category] of yourClass.map) {
-            for (const item of category.noSubmission) {
-                display.innerHTML += ("\n" + item);
-            }
-        }
-        display.innerHTML += ("\n--------------");
-        display.innerHTML += ("\nPlease check with me if you think this is incorrect.\n"
-            + "You can find the total missed points on the associated assignment page.\n"
-            + "You must calculate that in your final grade yourself, as this calculator will not.");
-    }
+    // hide submit text-box and submit button
+    document.getElementById('submitWindow').setAttribute("class", "d-none");
+    createRows(yourClass);
+    // display table
+    document.getElementById('displayTable').removeAttribute("class");
 }
 
 document.getElementById('submit').addEventListener("click", function () {
