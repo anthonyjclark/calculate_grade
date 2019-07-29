@@ -182,37 +182,87 @@ function getInfo(data, yourClass) {
 // }
 
 function createRows(yourClass) {
+    let tableTitle = document.getElementById('tableTitle');
+    tableTitle.innerText = yourClass.string;
     let table = document.getElementById('scoreTable');
     for (const [name, category] of yourClass.map) {
+        // create elements to add to table
         let row = document.createElement('tr');
         let categoryName = document.createElement('td');
         let yourScore = document.createElement('td');
         let yourPercentage = document.createElement('td');
         let maxPercentage = document.createElement('td');
 
+        // choose what information to display
         let your_score = category.isEmpty() ? 0 : category.yourScore.toPrecision(4);
         let max_score = category.isEmpty() ? 0 : category.maxScore.toPrecision(4);
         let percentage = category.isEmpty() ? 0 : category.getPercentage().toPrecision(4);
 
-        if (category.isEmpty()) {
-            row.setAttribute("class", "table-info");
-        }
-
-        if (category.noSubmission.length > 0) {
-            row.setAttribute("class", "table-danger");
-        }
-
+        // attach information as text on elements
         categoryName.innerText = name;
         categoryName.setAttribute("class", "text-left");
         yourScore.innerText = your_score + " / " + max_score;
         yourPercentage.innerText = percentage + " %";
         maxPercentage.innerText = category.weight + " %";
 
+        // attach tableData to tableRow
         row.appendChild(categoryName);
         row.appendChild(yourScore);
         row.appendChild(yourPercentage);
         row.appendChild(maxPercentage);
+
+        // warning alerts on table (no submission and not yet completed)
+        if (category.isEmpty()) {
+            let warning = document.createElement('td');
+            warning.innerText = "Not yet completed.";
+            warning.setAttribute("class", "alert alert-info");
+            row.appendChild(warning);
+        } else if (category.noSubmission.length > 0) {
+            let warning = document.createElement('td');
+            warning.innerText = "No Submission Warning";
+            warning.setAttribute("class", "alert alert-danger");
+            row.appendChild(warning);
+        }
+
+        // attach row to table
         table.appendChild(row);
+    }
+
+    // display totals information
+    document.getElementById('weightedScore').innerText =
+        yourClass.getWeightedScore().toPrecision(4) + " %";
+    document.getElementById('currentScore').innerText =
+        yourClass.getCurrentScore().toPrecision(4) + " %";
+}
+
+function displayWarnings(yourClass) {
+    // if Exam2 hasn't happened yet, weighted warning appears
+    if (yourClass.map.get("Exam2").maxScore == 0) {
+        let display = document.getElementById('weightedWarning');
+        display.removeAttribute("class"); // remove hidden attribute
+        display.setAttribute("class", "alert alert-info text-left");
+        display.innerHTML += ("NOTE:\n"
+            + "Weighted score does not include future material.\n"
+            + "It only reflects what you have earned thus far.\n"
+            + "To have 100%, you must have all material completed.\n"
+            + "For example, Exam 2 would not be included until your last day of class.\n");
+    }
+    // if a category has a no submission score, warning appears
+    if (yourClass.hasNoSubmission()) {
+        let display = document.getElementById('noSubmissionWarning');
+        display.removeAttribute("class"); // remove hidden attribute
+        display.setAttribute("class", "alert alert-danger text-left");
+        display.innerHTML += ("The following items have a 'No Submission' status:");
+        display.innerHTML += ("\n--------------");
+        for (const [name, category] of yourClass.map) {
+            for (const item of category.noSubmission) {
+                display.innerHTML += ("\n" + item);
+            }
+        }
+        display.innerHTML += ("\n--------------");
+        display.innerHTML += ("\nPlease check with me if you think this is incorrect.\n"
+            + "You can find the total missed points on the associated assignment page.\n"
+            + "You must calculate that in your final grade yourself,\nas this calculator will not.");
     }
 }
 
@@ -221,8 +271,10 @@ function print(yourClass) {
     // hide submit text-box and submit button
     document.getElementById('submitWindow').setAttribute("class", "d-none");
     createRows(yourClass);
-    // display table
+    // remove hidden attribute from table
     document.getElementById('displayTable').removeAttribute("class");
+    // display warnings if applicable
+    displayWarnings(yourClass);
 }
 
 document.getElementById('submit').addEventListener("click", function () {
@@ -230,6 +282,7 @@ document.getElementById('submit').addEventListener("click", function () {
     let option = dropDown.options[dropDown.selectedIndex].value;
     let display = document.getElementById('display');
     if (!option) {
+        display.setAttribute("class", "alert alert-danger");
         display.innerHTML = "Please select a course for grading.";
     }
     let data = document.getElementById('data').value;
@@ -241,6 +294,7 @@ document.getElementById('submit').addEventListener("click", function () {
             print(yourClass);
         }
         else {
+            display.setAttribute("class", "alert alert-danger");
             display.innerHTML = "Content does not match selected course.";
         }
     }

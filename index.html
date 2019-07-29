@@ -11,6 +11,22 @@
         .content {
             max-width: 600px;
             margin: auto;
+            text-align: center;
+        }
+
+        hr {
+            border-bottom: solid gray 2px;
+        }
+
+        #display {
+            width: 425px;
+            margin: auto;
+            text-align: center;
+        }
+
+        #option {
+            width: 425px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -19,17 +35,18 @@
 <body>
     <div class="content">
         <h2>Welcome to Grade Calculator!</h2>
-        <div>
-            <select id="option">
-                <option value="" disabled selected>Select Course for Grading</option>
-                <option value="232">CSC 232 Data Structures</option>
-                <option value="325">CSC 325 Algorithms</option>
-                <option value="333">CSC 333 Languages and Machines</option>
-            </select>
-        </div>
+        <hr />
         <div id="submitWindow">
             <div>
-                <textarea autofocus id="data" rows="7" cols="30" placeholder="Please copy and paste data in here.
+                <select id="option" class="selectpicker" data-width="auto" data-style="btn-primary">
+                    <option value="" disabled selected>Select Course for Grading</option>
+                    <option value="232">CSC 232 Data Structures</option>
+                    <option value="325">CSC 325 Algorithms</option>
+                    <option value="333">CSC 333 Languages and Machines</option>
+                </select>
+            </div>
+            <div>
+                <textarea autofocus id="data" rows="7" cols="44" placeholder="Please copy and paste data in here.
 You may:
 select all (ctrl + a),
 copy (ctrl + c), and
@@ -37,11 +54,12 @@ paste (ctrl + p)
 directly from Gradescope."></textarea>
             </div>
             <div>
-                <input id="submit" class="btn btn-success" type="submit" value="Submit" />
+                <input id="submit" class="w-50 btn btn-success m-2" type="submit" value="Submit" />
             </div>
             <pre id="display"></pre>
         </div>
         <div id="displayTable" class="d-none">
+            <h4 id="tableTitle" class="text-left"></h4>
             <table class="table table-hover text-center table-responsive">
                 <thead>
                     <tr>
@@ -51,11 +69,24 @@ directly from Gradescope."></textarea>
                         <th>Max %</th>
                     </tr>
                 </thead>
-                <tbody id="scoreTable">
-
+                <tbody id="scoreTable""></tbody>
+                <tbody id=" totals">
+                    <tr id="weightedScoreRow">
+                        <th class="text-left" colspan="2">Weighted Score:</th>
+                        <th id="weightedScore"></th>
+                        <th>100 %</th>
+                    </tr>
+                    <tr id="currentScoreRow" class="table-success">
+                        <th class="text-left" colspan="2">Current Score:</th>
+                        <th id="currentScore"></th>
+                        <th>100 %</th>
+                    </tr>
                 </tbody>
             </table>
+            <pre id="weightedWarning" class="d-none"></pre>
+            <pre id="noSubmissionWarning" class="d-none"></pre>
         </div>
+
         <script src="calc_grade.js"></script>
     </div>
 </body>
