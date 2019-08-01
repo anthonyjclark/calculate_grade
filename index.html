@@ -18,6 +18,10 @@
             border-bottom: solid gray 2px;
         }
 
+        h4 {
+            margin: 10px;
+        }
+
         #display {
             width: 425px;
             margin: auto;
@@ -27,6 +31,66 @@
         #option {
             width: 425px;
             margin-bottom: 10px;
+        }
+
+        #data {
+            width: 425px;
+        }
+
+        @media only screen and (max-width: 450px) {
+
+            .content {
+                max-width: 375px;
+                margin: 0;
+                font-size: 12px;
+            }
+
+            table {
+                width: 85%;
+                font-size: 14.5px;
+            }
+
+            h2 {
+                margin-top: 10px;
+                font-size: 24px;
+            }
+
+            #data {
+                width: 300px;
+                margin: 0;
+            }
+
+            #option {
+                width: 300px;
+            }
+
+            h4 {
+                font-size: 18px;
+            }
+
+            .alert {
+                display: none;
+            }
+
+            #display {
+                width: 300px;
+                display: block;
+            }
+
+            #noSubmissionWarning,
+            #weightedWarning {
+                display: block;
+                font-size: 10.5px;
+                padding: 8px;
+            }
+
+            .weighted {
+                background-color: #d1ecf1;
+            }
+
+            .noSub {
+                background-color: #f8d7da;
+            }
         }
     </style>
 </head>
@@ -63,7 +127,7 @@ directly from Gradescope."></textarea>
             <table class="table table-hover text-center table-responsive">
                 <thead>
                     <tr>
-                        <th class="text-left col-1">Category</th>
+                        <th class="text-left">Category</th>
                         <th>Your Score</th>
                         <th>Your %</th>
                         <th>Max %</th>
@@ -86,9 +150,8 @@ directly from Gradescope."></textarea>
             <pre id="weightedWarning" class="d-none"></pre>
             <pre id="noSubmissionWarning" class="d-none"></pre>
         </div>
-
-        <script src="calc_grade.js"></script>
     </div>
+    <script src="calc_grade.js"></script>
 </body>
 
 </html>

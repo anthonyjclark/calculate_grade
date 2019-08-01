@@ -1,3 +1,13 @@
+// const express = require('express');
+// const path = require('path');
+// const app = express();
+// app.get('/*', (req, res) => {
+//     res.sendFile(path.join(__dirname, './index.html'));
+// })
+// const port = 8081;
+// app.listen(port, () => {
+//     console.log(`App running on ${port}`);
+// })
 
 class CategoryInfo {
     constructor(weight) {
@@ -129,58 +139,6 @@ function getInfo(data, yourClass) {
     return true;
 }
 
-// // printing formatted information
-// function print(yourClass) {
-//     let display = document.getElementById('display');
-//     display.innerHTML = "";
-//     display.innerHTML += ("\n\n" + yourClass.string);
-//     display.innerHTML += ("\n*************************************************************************");
-//     display.innerHTML += ("\nCategory     Your Score    Your %  Max %");
-//     display.innerHTML += ("\n----------------------------------------");
-//     for (const [name, category] of yourClass.map) {
-//         let title = name + ":" + (" ".repeat(12 - name.length));
-//         let your_score = category.isEmpty() ? "    0" : category.yourScore.toPrecision(4);
-//         let max_score = category.isEmpty() ? "0    " : category.maxScore.toPrecision(4);
-//         let percentage = category.isEmpty() ? "    0" : category.getPercentage().toPrecision(4);
-//         let ifIncomplete = category.isEmpty() ? " Not yet completed." : "";
-//         if (category.noSubmission.length > 0) {
-//             ifIncomplete = " Grade is not accurate.";
-//         }
-//         display.innerHTML += ("\n" + title
-//             + your_score
-//             + "/" + max_score + "   "
-//             + percentage + "%   "
-//             + category.weight + "% "
-//             + ifIncomplete);
-//     }
-//     display.innerHTML += ("\n----------------------------------------");
-//     display.innerHTML += ("\nWeighted Score:            "
-//         + yourClass.getWeightedScore().toPrecision(4)
-//         + "%  100%");
-//     display.innerHTML += ("\nCurrent  Score:            "
-//         + yourClass.getCurrentScore().toPrecision(4)
-//         + "%  100%");
-//     display.innerHTML += ("\n*************************************************************************");
-//     display.innerHTML += ("\n\nNOTE:\n"
-//         + "Weighted score does not include future material.\n"
-//         + "It only reflects what you have earned thus far.\n"
-//         + "To have 100%, you must have all material completed.\n"
-//         + "For example, Exam 2 would not be included until your last day of class.\n");
-//     if (yourClass.hasNoSubmission()) {
-//         display.innerHTML += ("\nThe following items have a 'No Submission' status:");
-//         display.innerHTML += ("\n--------------");
-//         for (const [name, category] of yourClass.map) {
-//             for (const item of category.noSubmission) {
-//                 display.innerHTML += ("\n" + item);
-//             }
-//         }
-//         display.innerHTML += ("\n--------------");
-//         display.innerHTML += ("\nPlease check with me if you think this is incorrect.\n"
-//             + "You can find the total missed points on the associated assignment page.\n"
-//             + "You must calculate that in your final grade yourself, as this calculator will not.");
-//     }
-// }
-
 function createRows(yourClass) {
     let tableTitle = document.getElementById('tableTitle');
     tableTitle.innerText = yourClass.string;
@@ -213,11 +171,13 @@ function createRows(yourClass) {
 
         // warning alerts on table (no submission and not yet completed)
         if (category.isEmpty()) {
+            row.setAttribute("class", "weighted");
             let warning = document.createElement('td');
             warning.innerText = "Not yet completed.";
             warning.setAttribute("class", "alert alert-info");
             row.appendChild(warning);
         } else if (category.noSubmission.length > 0) {
+            row.setAttribute("class", "noSub");
             let warning = document.createElement('td');
             warning.innerText = "No Submission Warning";
             warning.setAttribute("class", "alert alert-danger");
@@ -245,7 +205,8 @@ function displayWarnings(yourClass) {
             + "Weighted score does not include future material.\n"
             + "It only reflects what you have earned thus far.\n"
             + "To have 100%, you must have all material completed.\n"
-            + "For example, Exam 2 would not be included until your last day of class.\n");
+            + "For example, Exam 2 would not be included until\n"
+            + "your last day of class.\n");
     }
     // if a category has a no submission score, warning appears
     if (yourClass.hasNoSubmission()) {
@@ -261,8 +222,9 @@ function displayWarnings(yourClass) {
         }
         display.innerHTML += ("\n--------------");
         display.innerHTML += ("\nPlease check with me if you think this is incorrect.\n"
-            + "You can find the total missed points on the associated assignment page.\n"
-            + "You must calculate that in your final grade yourself,\nas this calculator will not.");
+            + "You can find the total missed points on the associated\n"
+            + "assignment page. You must calculate that in your final\n"
+            + "grade yourself, as this calculator will not.");
     }
 }
 
