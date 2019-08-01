@@ -201,30 +201,20 @@ function displayWarnings(yourClass) {
         let display = document.getElementById('weightedWarning');
         display.removeAttribute("class"); // remove hidden attribute
         display.setAttribute("class", "alert alert-info text-left");
-        display.innerHTML += ("NOTE:\n"
-            + "Weighted score does not include future material.\n"
-            + "It only reflects what you have earned thus far.\n"
-            + "To have 100%, you must have all material completed.\n"
-            + "For example, Exam 2 would not be included until\n"
-            + "your last day of class.\n");
     }
     // if a category has a no submission score, warning appears
     if (yourClass.hasNoSubmission()) {
         let display = document.getElementById('noSubmissionWarning');
         display.removeAttribute("class"); // remove hidden attribute
         display.setAttribute("class", "alert alert-danger text-left");
-        display.innerHTML += ("The following items have a 'No Submission' status:");
-        display.innerHTML += ("\n--------------");
+        let content = document.getElementById('noSubContent');
         for (const [name, category] of yourClass.map) {
             for (const item of category.noSubmission) {
-                display.innerHTML += ("\n" + item);
+                let div = document.createElement('div');
+                div.innerHTML = item;
+                content.appendChild(div);
             }
         }
-        display.innerHTML += ("\n--------------");
-        display.innerHTML += ("\nPlease check with me if you think this is incorrect.\n"
-            + "You can find the total missed points on the associated\n"
-            + "assignment page. You must calculate that in your final\n"
-            + "grade yourself, as this calculator will not.");
     }
 }
 

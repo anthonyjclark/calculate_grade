@@ -9,7 +9,9 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         .content {
-            max-width: 600px;
+            /* max-width: 600px;
+            margin: auto; */
+            width: 100%;
             margin: auto;
             text-align: center;
         }
@@ -20,6 +22,11 @@
 
         h4 {
             margin: 10px;
+        }
+
+        #displayTable {
+            width: 100%;
+            margin: auto;
         }
 
         #display {
@@ -37,11 +44,21 @@
             width: 425px;
         }
 
+        @media only screen and (min-width: 450px) {
+            .content {
+                max-width: 600px;
+                margin: auto;
+            }
+
+            table {
+                width: 600px;
+                margin: auto;
+            }
+        }
+
         @media only screen and (max-width: 450px) {
 
             .content {
-                max-width: 375px;
-                margin: 0;
                 font-size: 12px;
             }
 
@@ -124,7 +141,7 @@ directly from Gradescope."></textarea>
         </div>
         <div id="displayTable" class="d-none">
             <h4 id="tableTitle" class="text-left"></h4>
-            <table class="table table-hover text-center table-responsive">
+            <table class="table table-hover text-center">
                 <thead>
                     <tr>
                         <th class="text-left">Category</th>
@@ -147,8 +164,26 @@ directly from Gradescope."></textarea>
                     </tr>
                 </tbody>
             </table>
-            <pre id="weightedWarning" class="d-none"></pre>
-            <pre id="noSubmissionWarning" class="d-none"></pre>
+            <div id="weightedWarning" class="d-none">
+                <div>NOTE:</div>
+                <div>
+                    Weighted score does not include future material.
+                    It only reflects what you have earned thus far.
+                    To have 100%, you must have all material completed.
+                    For example, Exam 2 would not be included until
+                    your last day of class.
+                </div>
+            </div>
+            <div id="noSubmissionWarning" class="d-none">
+                <div>The following items have a 'No Submission' status:</div>
+                <div>--------------</div>
+                <div id="noSubContent"></div>
+                <div>--------------</div>
+                <div>Please check with me if you think this is incorrect.
+                    You can find the total missed points on the associated
+                    assignment page. You must calculate that in your final
+                    grade yourself, as this calculator will not.</div>
+            </div>
         </div>
     </div>
     <script src="calc_grade.js"></script>
