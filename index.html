@@ -9,8 +9,6 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         .content {
-            /* max-width: 600px;
-            margin: auto; */
             width: 100%;
             margin: auto;
             text-align: center;
@@ -138,55 +136,56 @@ directly from Gradescope."></textarea>
                 <input id="submit" class="w-50 btn btn-success m-2" type="submit" value="Submit" />
             </div>
             <pre id="display"></pre>
-        </div>
-        <div id="displayTable" class="d-none">
-            <h4 id="tableTitle" class="text-left"></h4>
-            <table class="table table-hover text-center">
-                <thead>
-                    <tr>
-                        <th class="text-left">Category</th>
-                        <th>Your Score</th>
-                        <th>Your %</th>
-                        <th>Max %</th>
-                    </tr>
-                </thead>
-                <tbody id="scoreTable""></tbody>
+            <div id="gradescopeLink">
+                <a href="https://www.gradescope.com">--> click here to visit Gradescope <--</a> </div> </div> <div
+                        id="displayTable" class="d-none">
+                        <h4 id="tableTitle" class="text-left"></h4>
+                        <table class="table table-hover text-center">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">Category</th>
+                                    <th>Your Score</th>
+                                    <th>Your %</th>
+                                    <th>Max %</th>
+                                </tr>
+                            </thead>
+                            <tbody id="scoreTable""></tbody>
                 <tbody id=" totals">
-                    <tr id="weightedScoreRow">
-                        <th class="text-left" colspan="2">Weighted Score:</th>
-                        <th id="weightedScore"></th>
-                        <th>100 %</th>
-                    </tr>
-                    <tr id="currentScoreRow" class="table-success">
-                        <th class="text-left" colspan="2">Current Score:</th>
-                        <th id="currentScore"></th>
-                        <th>100 %</th>
-                    </tr>
-                </tbody>
-            </table>
-            <div id="weightedWarning" class="d-none">
-                <div>NOTE:</div>
-                <div>
-                    Weighted score does not include future material.
-                    It only reflects what you have earned thus far.
-                    To have 100%, you must have all material completed.
-                    For example, Exam 2 would not be included until
-                    your last day of class.
-                </div>
-            </div>
-            <div id="noSubmissionWarning" class="d-none">
-                <div>The following items have a 'No Submission' status:</div>
-                <div>--------------</div>
-                <div id="noSubContent"></div>
-                <div>--------------</div>
-                <div>Please check with me if you think this is incorrect.
-                    You can find the total missed points on the associated
-                    assignment page. You must calculate that in your final
-                    grade yourself, as this calculator will not.</div>
+                                <tr id="weightedScoreRow">
+                                    <th class="text-left" colspan="2">Weighted Score:</th>
+                                    <th id="weightedScore"></th>
+                                    <th>100 %</th>
+                                </tr>
+                                <tr id="currentScoreRow" class="table-success">
+                                    <th class="text-left" colspan="2">Current Score:</th>
+                                    <th id="currentScore"></th>
+                                    <th>100 %</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div id="weightedWarning" class="d-none">
+                            <div>NOTE:</div>
+                            <div>
+                                Weighted score does not include future material.
+                                It only reflects what you have earned thus far.
+                                To have 100%, you must have all material completed.
+                                For example, Exam 2 would not be included until
+                                your last day of class.
+                            </div>
+                        </div>
+                        <div id="noSubmissionWarning" class="d-none">
+                            <div>The following items have a 'No Submission' status:</div>
+                            <div>--------------</div>
+                            <div id="noSubContent"></div>
+                            <div>--------------</div>
+                            <div>Please check with me if you think this is incorrect.
+                                You can find the total missed points on the associated
+                                assignment page. You must calculate that in your final
+                                grade yourself, as this calculator will not.</div>
+                        </div>
             </div>
         </div>
-    </div>
-    <script src="calc_grade.js"></script>
+        <script src="calc_grade.js"></script>
 </body>
 
 </html>

@@ -1,14 +1,32 @@
-// const express = require('express');
-// const path = require('path');
-// const app = express();
-// app.get('/*', (req, res) => {
-//     res.sendFile(path.join(__dirname, './index.html'));
-// })
-// const port = 8081;
-// app.listen(port, () => {
-//     console.log(`App running on ${port}`);
-// })
 
+// create class based on menu selection
+// if adding a choice, please add option in index.html (line 125)
+function classSwitch(choice) {
+    let category, breakdown, string;
+    switch (choice) {
+        case "232": {
+            category = ["Lab", "Quiz", "Assignment", "Exam1", "Exam2"];
+            breakdown = [.2, .1, .3, .2, .2];
+            string = "CSC 232  Data Structures\n";
+            break;
+        }
+        case "325": {
+            category = ["Quiz", "Assignment", "Exam1", "Exam2"];
+            breakdown = [.1, .5, .2, .2];
+            string = "CSC 325  Algorithms\n";
+            break;
+        }
+        case "333": {
+            category = ["Quiz", "Assignment", "Exam1", "Exam2"];
+            breakdown = [.1, .5, .2, .2];
+            string = "CSC 333  Languages and Machines\n";
+            break;
+        }
+    }
+    return new CscClass(category, breakdown, string)
+}
+
+// information about each category (ex: Quiz, Assignment, Lab, Exam)
 class CategoryInfo {
     constructor(weight) {
         this.weight = 100 * weight; // category weight
@@ -34,6 +52,9 @@ class CategoryInfo {
         return this.maxScore == 0.0;
     }
 }
+
+// information about your class (as selected in classSwitch(choice))
+// uses class CategoryInfo as a subClass
 class CscClass {
     constructor(category, breakdown, string) {
         this.category = category;   // list of categories in class
@@ -50,7 +71,7 @@ class CscClass {
     getCurrentScore() {
         let score = this.getWeightedScore();
         for (const [key, category] of this.map) {
-            if (category.isEmpty()) {
+            if (category.isEmpty() && category.noSubmission.length == 0) {
                 score += category.weight;
             }
         }
@@ -71,31 +92,6 @@ class CscClass {
     }
 }
 
-// create class based on menu selection
-function classSwitch(choice) {
-    let category, breakdown, string;
-    switch (choice) {
-        case "232": {
-            category = ["Quiz", "Assignment", "Exam1", "Exam2", "Lab"];
-            breakdown = [.1, .3, .2, .2, .2];
-            string = "CSC 232  Data Structures\n";
-            break;
-        }
-        case "325": {
-            category = ["Quiz", "Assignment", "Exam1", "Exam2"];
-            breakdown = [.1, .5, .2, .2];
-            string = "CSC 325  Algorithms\n";
-            break;
-        }
-        case "333": {
-            category = ["Quiz", "Assignment", "Exam1", "Exam2"];
-            breakdown = [.1, .5, .2, .2];
-            string = "CSC 333  Languages and Machines\n";
-            break;
-        }
-    }
-    return new CscClass(category, breakdown, string)
-}
 
 // load info from dataString into CscClass yourClass
 function getInfo(data, yourClass) {
@@ -104,7 +100,15 @@ function getInfo(data, yourClass) {
     // to make sure that content matches the selected course from drop down option
     // line 3 will be "CSC ###", where ### must match selected course
     // if selectAll has NOT been copied, ignore (check this with first line == "Skip")
-    if (lineArray[0] == "Skip to content") {
+    if (lineArray[0] == "Skip to content") { // this means selectAll has occurred
+        // console.log("helllo")
+        // let option = dropDown.options[dropDown.selectedIndex].value;
+        // console.log(option);
+        // if (option.value == "") {        // if no class has been chosen, automatically select course
+        //     classSwitch(lineArray[2].substring(4, 7));
+        //     console.log("i'm here")
+        // }
+        //else 
         if (lineArray[2].substring(4, 7) != yourClass.string.substring(4, 7)) {
             return false;
         }
@@ -170,7 +174,7 @@ function createRows(yourClass) {
         row.appendChild(maxPercentage);
 
         // warning alerts on table (no submission and not yet completed)
-        if (category.isEmpty()) {
+        if (category.isEmpty() && category.noSubmission.length == 0) {
             row.setAttribute("class", "weighted");
             let warning = document.createElement('td');
             warning.innerText = "Not yet completed.";
@@ -197,7 +201,8 @@ function createRows(yourClass) {
 
 function displayWarnings(yourClass) {
     // if Exam2 hasn't happened yet, weighted warning appears
-    if (yourClass.map.get("Exam2").maxScore == 0) {
+    if (yourClass.map.get("Exam2").maxScore == 0
+        && yourClass.map.get("Exam2").noSubmission.length == 0) {
         let display = document.getElementById('weightedWarning');
         display.removeAttribute("class"); // remove hidden attribute
         display.setAttribute("class", "alert alert-info text-left");
