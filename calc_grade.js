@@ -93,25 +93,26 @@ class CscClass {
 }
 
 
-// load info from dataString into CscClass yourClass
-function getInfo(data, yourClass) {
-    var lineArray = data.split("\n");
-    // if selectAll has been copied from Gradescope, an extra check can occur
-    // to make sure that content matches the selected course from drop down option
-    // line 3 will be "CSC ###", where ### must match selected course
+// load info from text-box into CscClass yourClass
+function getInfo(data) {
+    let lineArray = data.split("\n");
+    let dropDown = document.getElementById('option');
+    let option = dropDown.options[dropDown.selectedIndex].value;
+    let yourClass;
+    // if selectAll has been copied from Gradescope, course selection is automatic
+    // line 3 will be "CSC ###", where ### will be put into classSwitch(###)
     // if selectAll has NOT been copied, ignore (check this with first line == "Skip")
     if (lineArray[0] == "Skip to content") { // this means selectAll has occurred
-        // console.log("helllo")
-        // let option = dropDown.options[dropDown.selectedIndex].value;
-        // console.log(option);
-        // if (option.value == "") {        // if no class has been chosen, automatically select course
-        //     classSwitch(lineArray[2].substring(4, 7));
-        //     console.log("i'm here")
-        // }
-        //else 
-        if (lineArray[2].substring(4, 7) != yourClass.string.substring(4, 7)) {
-            return false;
+        yourClass = classSwitch(lineArray[2].substring(4, 7));
+    } else {
+        let display = document.getElementById('display');
+        if (!option) { // if course hasn't been selected, alert and exit function
+            display.setAttribute("class", "alert alert-danger");
+            display.innerHTML = "Please select a course for grading.";
+            return;
         }
+        // if course is selected, create CscClass yourClass
+        yourClass = classSwitch(option);
     }
     for (let i = 0; i < lineArray.length; i++) {
         let wordArray = lineArray[i].split(" ");
@@ -140,7 +141,7 @@ function getInfo(data, yourClass) {
             }
         }
     }
-    return true;
+    return yourClass;
 }
 
 function createRows(yourClass) {
@@ -234,25 +235,13 @@ function print(yourClass) {
     displayWarnings(yourClass);
 }
 
+// get information from text-box and display results
 document.getElementById('submit').addEventListener("click", function () {
-    let dropDown = document.getElementById('option');
-    let option = dropDown.options[dropDown.selectedIndex].value;
-    let display = document.getElementById('display');
-    if (!option) {
-        display.setAttribute("class", "alert alert-danger");
-        display.innerHTML = "Please select a course for grading.";
-    }
     let data = document.getElementById('data').value;
     if (data) {
-        let yourClass = classSwitch(option);
-        // check if content matches course selection, if true: continue
-        if (getInfo(data, yourClass)) {
-            data = ""; // clear text box
-            print(yourClass);
-        }
-        else {
-            display.setAttribute("class", "alert alert-danger");
-            display.innerHTML = "Content does not match selected course.";
+        let info = getInfo(data);
+        if (info) { // info is false if option is not selected
+            print(getInfo(data));
         }
     }
 });
