@@ -206,9 +206,21 @@ function createRows(yourClass) {
 }
 
 function displayWarnings(yourClass) {
-    // if Exam2 hasn't happened yet, weighted warning appears
-    if (yourClass.map.get("Exam2").maxScore == 0
-        && yourClass.map.get("Exam2").noSubmission.length == 0) {
+    let needsWeightedWarning = false;
+    if (yourClass.string == "CSC 325  Algorithms\n") {
+        // if Exam2 hasn't happened yet, weighted warning appears
+        if (yourClass.map.get("Exam2").maxScore == 0
+            && yourClass.map.get("Exam2").noSubmission.length == 0) {
+            needsWeightedWarning = true;
+        }
+    }
+    else {
+        if (yourClass.map.get("Exam2, part2").maxScore == 0
+            && yourClass.map.get("Exam2, part2").noSubmission.length == 0) {
+            needsWeightedWarning = true;
+        }
+    }
+    if (needsWeightedWarning) {
         let display = document.getElementById('weightedWarning');
         display.removeAttribute("class"); // remove hidden attribute
         display.setAttribute("class", "alert alert-info text-left");
