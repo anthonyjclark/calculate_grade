@@ -5,8 +5,8 @@ function classSwitch(choice) {
     let category, breakdown, string;
     switch (choice) {
         case "232": {
-            category = ["Lab", "Quiz", "Assignment", "Exam1", "Exam2"];
-            breakdown = [.2, .1, .3, .2, .2];
+            category = ["Lab", "Quiz", "Assignment", "Exam1, part1", "Exam1, part2", "Exam2, part1", "Exam2, part2"];
+            breakdown = [.2, .1, .3, .03, .17, .03, .17];
             string = "CSC 232  Data Structures\n";
             break;
         }
@@ -17,8 +17,8 @@ function classSwitch(choice) {
             break;
         }
         case "333": {
-            category = ["Quiz", "Assignment", "Exam1", "Exam2"];
-            breakdown = [.1, .5, .2, .2];
+            category = ["Quiz", "Assignment", "Exam1, part1", "Exam1, part2", "Exam2, part1", "Exam2, part2"];
+            breakdown = [.1, .5, .03, .17, .03, .17];
             string = "CSC 333  Languages and Machines\n";
             break;
         }
@@ -120,15 +120,20 @@ function getInfo(data) {
             || wordArray[0] == "Exam") {
             // grab wordArray[0]
             let category = wordArray[0] // for semantics
-            // Exam has 2 entries (Exam1, Exam2)
+            // for CSC 232 and CSC 333:
+            // Exam has 4 entries (Exam1.1, Exam1.2, Exam2.1, Exam2.2)
             if (wordArray[0] == "Exam") {
-                category += parseInt(wordArray[1]);
+                if (yourClass.string !== "CSC 325  Algorithms\n") { // only class that has exams weighted singularly
+                    category += parseInt(wordArray[1]) + ", part" + parseInt(wordArray[3]);
+                } else {
+                    category += parseInt(wordArray[1]);
+                }
             }
             // grab lineArray[i+1], parse yourScore and MaxScore from it
             let scoreArray = lineArray[i + 1].split(" ");
             // if assignment has "no submission", add to category.noSubmission[]
             if (scoreArray[0] == "No") {
-                let num = parseInt(wordArray[1]); //parseInt to exclude comma attached
+                let num = parseInt(wordArray[1]); // parseInt to exclude comma attached
                 yourClass.map.get(category).noSubmission.push(wordArray[0] + " " + num);
             } else if (scoreArray[0] == "Submitted") {
                 continue; // if assignment has not yet been graded, ignore
