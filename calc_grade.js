@@ -133,8 +133,12 @@ function getInfo(data) {
             let scoreArray = lineArray[i + 1].split(" ");
             // if assignment has "no submission", add to category.noSubmission[]
             if (scoreArray[0] == "No") {
-                let num = parseInt(wordArray[1]); // parseInt to exclude comma attached
-                yourClass.map.get(category).noSubmission.push(wordArray[0] + " " + num);
+                if (category.substring(0, 4) == "Exam") {
+                    yourClass.map.get(category).noSubmission.push(category);
+                } else {
+                    let num = parseInt(wordArray[1]); // parseInt to exclude comma attached
+                    yourClass.map.get(category).noSubmission.push(wordArray[0] + " " + num);
+                }
             } else if (scoreArray[0] == "Submitted") {
                 continue; // if assignment has not yet been graded, ignore
             } else {
