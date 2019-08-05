@@ -5,7 +5,7 @@ function classSwitch(choice) {
     let category, breakdown, string;
     switch (choice) {
         case "232": {
-            category = ["Lab", "Quiz", "Assignment", "Exam1, part1", "Exam1, part2", "Exam2, part1", "Exam2, part2"];
+            category = ["Lab", "Quiz", "Assignment", "Exam1, pt1", "Exam1, pt2", "Exam2, pt1", "Exam2, pt2"];
             breakdown = [.2, .1, .3, .03, .17, .03, .17];
             string = "CSC 232  Data Structures\n";
             break;
@@ -17,7 +17,7 @@ function classSwitch(choice) {
             break;
         }
         case "333": {
-            category = ["Quiz", "Assignment", "Exam1, part1", "Exam1, part2", "Exam2, part1", "Exam2, part2"];
+            category = ["Quiz", "Assignment", "Exam1, pt1", "Exam1, pt2", "Exam2, pt1", "Exam2, pt2"];
             breakdown = [.1, .5, .03, .17, .03, .17];
             string = "CSC 333  Languages and Machines\n";
             break;
@@ -124,7 +124,7 @@ function getInfo(data) {
             // Exam has 4 entries (Exam1.1, Exam1.2, Exam2.1, Exam2.2)
             if (wordArray[0] == "Exam") {
                 if (yourClass.string !== "CSC 325  Algorithms\n") { // only class that has exams weighted singularly
-                    category += parseInt(wordArray[1]) + ", part" + parseInt(wordArray[3]);
+                    category += parseInt(wordArray[1]) + ", pt" + parseInt(wordArray[3]);
                 } else {
                     category += parseInt(wordArray[1]);
                 }
@@ -215,8 +215,8 @@ function displayWarnings(yourClass) {
         }
     }
     else {
-        if (yourClass.map.get("Exam2, part2").maxScore == 0
-            && yourClass.map.get("Exam2, part2").noSubmission.length == 0) {
+        if (yourClass.map.get("Exam2, pt2").maxScore == 0
+            && yourClass.map.get("Exam2, pt2").noSubmission.length == 0) {
             needsWeightedWarning = true;
         }
     }
