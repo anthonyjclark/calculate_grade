@@ -10,9 +10,15 @@ function classSwitch(choice) {
             string = "CSC 232  Data Structures\n";
             break;
         }
+        // case "325": {
+        //     category = ["Quiz", "Assignment", "Exam1", "Exam2"];
+        //     breakdown = [.1, .5, .2, .2];
+        //     string = "CSC 325  Algorithms\n";
+        //     break;
+        // }
         case "325": {
-            category = ["Quiz", "Assignment", "Exam1", "Exam2"];
-            breakdown = [.1, .5, .2, .2];
+            category = ["Activity", "Quiz", "Assignment", "Final"];
+            breakdown = [.1, .3, .4, .2];
             string = "CSC 325  Algorithms\n";
             break;
         }
@@ -96,8 +102,8 @@ class CscClass {
 // load info from text-box into CscClass yourClass
 function getInfo(data) {
     let lineArray = data.split("\n");
-    let dropDown = document.getElementById('option');
-    let option = dropDown.options[dropDown.selectedIndex].value;
+    // let dropDown = document.getElementById('option');
+    // let option = dropDown.options[dropDown.selectedIndex].value;
     let yourClass;
     // if selectAll has been copied from Gradescope, course selection is automatic
     // line 3 will be "CSC ###", where ### will be put into classSwitch(###)
@@ -116,10 +122,12 @@ function getInfo(data) {
     }
     for (let i = 0; i < lineArray.length; i++) {
         let wordArray = lineArray[i].split(" ");
+        console.log(wordArray);
         if (yourClass.category.includes(wordArray[0])
             || wordArray[0] == "Exam") {
             // grab wordArray[0]
             let category = wordArray[0] // for semantics
+            console.log(category);
             // for CSC 232 and CSC 333:
             // Exam has 4 entries (Exam1.1, Exam1.2, Exam2.1, Exam2.2)
             if (wordArray[0] == "Exam") {
