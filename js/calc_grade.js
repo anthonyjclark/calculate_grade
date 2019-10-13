@@ -104,54 +104,68 @@ function getInfo(data) {
     let lineArray = data.split("\n");
     // let dropDown = document.getElementById('option');
     // let option = dropDown.options[dropDown.selectedIndex].value;
-    let yourClass;
+    // let yourClass;
     // if selectAll has been copied from Gradescope, course selection is automatic
     // line 3 will be "CSC ###", where ### will be put into classSwitch(###)
     // if selectAll has NOT been copied, ignore (check this with first line == "Skip")
-    if (lineArray[0] == "Skip to content") { // this means selectAll has occurred
-        yourClass = classSwitch(lineArray[2].substring(4, 7));
-    } else {
-        let display = document.getElementById('display');
-        if (!option) { // if course hasn't been selected, alert and exit function
-            display.setAttribute("class", "alert alert-danger");
-            display.innerHTML = "Please select a course for grading.";
-            return;
-        }
-        // if course is selected, create CscClass yourClass
-        yourClass = classSwitch(option);
-    }
+    // if (lineArray[0] == "Skip to content") { // this means selectAll has occurred
+    //     yourClass = classSwitch(lineArray[2].substring(4, 7));
+    // } else {
+    //     let display = document.getElementById('display');
+    //     if (!option) { // if course hasn't been selected, alert and exit function
+    //         display.setAttribute("class", "alert alert-danger");
+    //         display.innerHTML = "Please select a course for grading.";
+    //         return;
+    //     }
+    //     // if course is selected, create CscClass yourClass
+    //     yourClass = classSwitch(option);
+    // }
+
+    // Line 3 will be "CSC ###", where ### will be put into classSwitch(###)
+    let yourClass = classSwitch(lineArray[2].substring(4, 7));
+
+    // TODO: check that yourClass is valid
+
     for (let i = 0; i < lineArray.length; i++) {
         let wordArray = lineArray[i].split(" ");
-        console.log(wordArray);
-        if (yourClass.category.includes(wordArray[0])
-            || wordArray[0] == "Exam") {
-            // grab wordArray[0]
+        if (yourClass.category.includes(wordArray[0])) {
+            // grab wordArray[0], which is the category (e.g., activity, quiz)
             let category = wordArray[0] // for semantics
-            console.log(category);
-            // for CSC 232 and CSC 333:
-            // Exam has 4 entries (Exam1.1, Exam1.2, Exam2.1, Exam2.2)
-            if (wordArray[0] == "Exam") {
-                if (yourClass.string !== "CSC 325  Algorithms\n") { // only class that has exams weighted singularly
-                    category += parseInt(wordArray[1]) + ", pt" + parseInt(wordArray[3]);
-                } else {
-                    category += parseInt(wordArray[1]);
-                }
-            }
+            // if (wordArray[0] == "Exam") {
+            //     if (yourClass.string !== "CSC 325  Algorithms\n") { // only class that has exams weighted singularly
+            //         category += parseInt(wordArray[1]) + ", pt" + parseInt(wordArray[3]);
+            //     } else {
+            //         category += parseInt(wordArray[1]);
+            //     }
+            // }
             // grab lineArray[i+1], parse yourScore and MaxScore from it
+
             let scoreArray = lineArray[i + 1].split(" ");
             // if assignment has "no submission", add to category.noSubmission[]
             if (scoreArray[0] == "No") {
-                if (category.substring(0, 4) == "Exam") {
-                    yourClass.map.get(category).noSubmission.push(category);
-                } else {
-                    let num = parseInt(wordArray[1]); // parseInt to exclude comma attached
-                    yourClass.map.get(category).noSubmission.push(wordArray[0] + " " + num);
-                }
+                // if (category.substring(0, 4) == "Exam") {
+                //     yourClass.map.get(category).noSubmission.push(category);
+                // } else {
+                let num = parseInt(wordArray[1]); // parseInt to exclude comma attached
+                yourClass.map.get(category).noSubmission.push(wordArray[0] + " " + num);
+                // }
             } else if (scoreArray[0] == "Submitted") {
                 continue; // if assignment has not yet been graded, ignore
             } else {
-                let your_score = parseFloat(scoreArray[0]); // for semantics and mutation to number
-                let max_score = parseFloat(scoreArray[2]);  // for semantics and mutation to number
+                // Quizzes need to be weighted (TODO: indicate this in classSwitch)
+                let scoreModifier = 1.0;
+                if (category === "Quiz") {
+                    if (wordArray[wordArray.length - 1] === "(Individual)") {
+                        scoreModifier = 0.75;
+                    } else {
+                        scoreModifier = 0.25;
+                    }
+                }
+
+                // TODO: need to get the max between this value and the individual score...
+
+                let your_score = parseFloat(scoreArray[0] * scoreModifier);
+                let max_score = parseFloat(scoreArray[2] * scoreModifier);
                 // add scores to map
                 yourClass.map.get(category).addToYourScore(your_score);
                 yourClass.map.get(category).addToMaxScore(max_score);
@@ -219,19 +233,19 @@ function createRows(yourClass) {
 
 function displayWarnings(yourClass) {
     let needsWeightedWarning = false;
-    if (yourClass.string == "CSC 325  Algorithms\n") {
-        // if Exam2 hasn't happened yet, weighted warning appears
-        if (yourClass.map.get("Exam2").maxScore == 0
-            && yourClass.map.get("Exam2").noSubmission.length == 0) {
-            needsWeightedWarning = true;
-        }
-    }
-    else {
-        if (yourClass.map.get("Exam2, pt2").maxScore == 0
-            && yourClass.map.get("Exam2, pt2").noSubmission.length == 0) {
-            needsWeightedWarning = true;
-        }
-    }
+    // if (yourClass.string == "CSC 325  Algorithms\n") {
+    //     // if Exam2 hasn't happened yet, weighted warning appears
+    //     if (yourClass.map.get("Exam2").maxScore == 0
+    //         && yourClass.map.get("Exam2").noSubmission.length == 0) {
+    //         needsWeightedWarning = true;
+    //     }
+    // }
+    // else {
+    //     if (yourClass.map.get("Exam2, pt2").maxScore == 0
+    //         && yourClass.map.get("Exam2, pt2").noSubmission.length == 0) {
+    //         needsWeightedWarning = true;
+    //     }
+    // }
     if (needsWeightedWarning) {
         let display = document.getElementById('weightedWarning');
         display.removeAttribute("class"); // remove hidden attribute
