@@ -7,123 +7,22 @@
     <title>Grade Calculator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        .content {
-            width: 100%;
-            margin: auto;
-            text-align: center;
-        }
-
-        hr {
-            border-bottom: solid gray 2px;
-        }
-
-        h4 {
-            margin: 10px;
-        }
-
-        #displayTable {
-            width: 100%;
-            margin: auto;
-        }
-
-        #display {
-            width: 425px;
-            margin: auto;
-            text-align: center;
-        }
-
-        #option {
-            width: 425px;
-            margin-bottom: 10px;
-        }
-
-        #data {
-            width: 425px;
-        }
-
-        @media only screen and (min-width: 450px) {
-            .content {
-                max-width: 600px;
-                margin: auto;
-            }
-
-            table {
-                width: 600px;
-                margin: auto;
-            }
-        }
-
-        @media only screen and (max-width: 450px) {
-
-            .content {
-                font-size: 12px;
-            }
-
-            table {
-                width: 85%;
-                font-size: 14.5px;
-            }
-
-            h2 {
-                margin-top: 10px;
-                font-size: 24px;
-            }
-
-            #data {
-                width: 300px;
-                margin: 0;
-            }
-
-            #option {
-                width: 300px;
-            }
-
-            h4 {
-                font-size: 18px;
-            }
-
-            .alert {
-                display: none;
-            }
-
-            #display {
-                width: 300px;
-                display: block;
-            }
-
-            #noSubmissionWarning,
-            #weightedWarning {
-                display: block;
-                font-size: 10.5px;
-                padding: 8px;
-            }
-
-            .weighted {
-                background-color: #d1ecf1;
-            }
-
-            .noSub {
-                background-color: #f8d7da;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 
 <body>
     <div class="content">
         <h2>Welcome to Grade Calculator!</h2>
         <hr />
         <div id="submitWindow">
-            <div>
+            <!-- <div>
                 <select id="option" class="selectpicker" data-width="auto" data-style="btn-primary">
                     <option value="" disabled selected>Select Course for Grading</option>
                     <option value="232">CSC 232 Data Structures</option>
                     <option value="325">CSC 325 Algorithms</option>
                     <option value="333">CSC 333 Languages and Machines</option>
                 </select>
-            </div>
+            </div> -->
             <div>
                 <textarea autofocus id="data" rows="7" cols="44" placeholder="Please copy and paste data in here.
 You may:
@@ -185,7 +84,7 @@ directly from Gradescope."></textarea>
                         </div>
             </div>
         </div>
-        <script src="calc_grade.js"></script>
+        <script src="js/calc_grade.js"></script>
 </body>
 
 </html>
