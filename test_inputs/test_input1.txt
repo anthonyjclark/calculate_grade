@@ -1,0 +1,73 @@
+Skip to content
+gradescope
+CSC 325
+Algorithms and Advanced Data Structures
+
+    Dashboard
+    Regrade Requests
+
+Instructor
+
+    Anthony Clark
+
+Account
+CSC 325
+Fall 2019
+Description
+
+Algorithms and advanced data structures, including graphs, heaps, self-adjusting data structures, set representations and dynamic programming. Sample applications, including memory management and data compression. Introduction to NP-complete problems. Correctness proofs and efficiency analysis are stressed.
+Assignments List
+Name	Status	ReleasedDue (CDT)
+No Submission
+
+12 hours, 46 minutes left
+Oct 02Oct 13 at 11:00PM
+Assignment 02: Loop Invariant and Master Theorem
+No Submission
+
+Sep 16Sep 25 at 11:00PM
+Assignment 01: Asymptotic Notation and Total Running Time
+No Submission
+
+Aug 28Sep 05 at 11:00PM
+Activity 01: Introduction
+No Submission
+
+Activity 02: MergeSort Recursion Tree
+No Submission
+
+Activity 03: Running Time
+No Submission
+
+Activity 04: Closest Pair
+No Submission
+
+Activity 05: Recurrences
+No Submission
+
+Quiz 01: Running Time (Individual)
+20.0 / 20.0
+
+Quiz 01: Running Time (Group)
+No Submission
+
+Activity 07: Quicksort Partition
+No Submission
+
+Activity 08: Quicksort Partition Proof
+No Submission
+
+Activity 06: Probability
+No Submission
+
+Quiz 02: Master Theorem and Loop Invariant (Individual)
+No Submission
+
+Quiz 02: Master Theorem and Loop Invariant (Group)
+No Submission
+
+Activity 09: Sorting Bound
+No Submission
+
+Activity 10: Quicksort Running Time
+No Submission
