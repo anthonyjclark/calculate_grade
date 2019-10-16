@@ -1,0 +1,97 @@
+Skip to content
+gradescope
+CSC 333
+Languages and Machines
+
+    Dashboard
+    Regrade Requests
+
+Instructor
+
+    Anthony Clark
+
+Account
+CSC 333
+Spring 2019
+Description
+
+A study of two classes of languages: formal languages (regular, context-free, and computable) and their associated machines (finite automata, pushdown automata, and Turing machines); and programming languages, including the essential features of imperative, functional, object-oriented, and logic programming languages, together with their design and implementation on modern computers and virtual machines.
+Assignments List
+Name	Status	ReleasedDue (CDT)
+Assignment 05, CFGs and Trees	
+14.9 / 15.0
+	
+Apr 16Apr 16 at 11:00PM
+Assignment 04, RE to DFA	
+14.75 / 15.0
+	
+Mar 07Mar 21 at 11:00PM
+Quiz 01, Introduction (2019-01-15)	
+10.0 / 10.0
+	
+Quiz 02, Command Line (2019-01-29)	
+10.0 / 10.0
+	
+Quiz 05, Programming Language (2019-02-14)	
+10.0 / 10.0
+	
+Quiz 04, Tokens/Lexemes (2019-02-12)	
+10.0 / 10.0
+	
+Quiz 06, Regex Building Blocks (2019-02-26)	
+10.0 / 10.0
+	
+Quiz 08, Matching Parenthesis (2019-03-05) 	
+9.0 / 10.0
+	
+Quiz 09, RE to NFA to DFA (2019-03-07)	
+10.0 / 10.0
+	
+Quiz 03, Rust Program (2019-01-31)	
+10.0 / 10.0
+	
+Assignment 01, Print nth	
+9.0 / 9.0
+	
+Assignment 02, Lexer Part 1	
+15.0 / 15.0
+	
+Assignment 03, Lexer Part 2	
+20.0 / 20.0
+	
+Quiz 07, Identifier Token (2019-02-28)	
+10.0 / 10.0
+	
+Quiz 10, Context Free Grammars (2019-03-19)	
+10.0 / 10.0
+	
+Exam 1, Part 2	
+39.3 / 40.0
+	
+Exam 1, Part 1	
+15.0 / 15.0
+	
+Quiz 11, Parse Trees (2019-04-02)	
+10.0 / 10.0
+	
+Quiz 12, Left Recursion and Left Factoring (2019-04-09)	
+10.0 / 10.0
+	
+Quiz 13, Recognizer Pt 1 (2019-04-16)	
+10.0 / 10.0
+	
+Quiz 14, Trees with Statements (2019-04-25)	
+10.0 / 10.0
+	
+Quiz 15, Tree-Walking Expression Evaluation (2019-05-02)	
+10.0 / 10.0
+	
+Assignment 06, Parser	
+20.0 / 20.0
+	
+Exam 2, Part 1	
+15.0 / 16.0
+	
+Exam 2, Part 2	
+47.9 / 51.0
+	

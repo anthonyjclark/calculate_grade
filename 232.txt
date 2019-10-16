@@ -1,0 +1,136 @@
+Skip to content
+gradescope
+CSC 232
+Data Structures
+
+    Dashboard
+    Regrade Requests
+
+Instructor
+
+    Anthony Clark
+
+Account
+CSC 232
+Summer 2019
+Description
+
+A continuation of CSC 131. Topics will include: algorithm design; complexity analysis; abstract data types and encapsulation; basic data structures and their application, including stacks, queues, linked lists and binary trees; dynamic memory allocation; recursion; sorting and searching; debugging techniques.
+Assignments List
+Name	Status	ReleasedDue (CDT)
+Exam 2, Part 1	
+No Submission
+	
+Aug 02Aug 02 at 9:00AM
+Assignment 05: Binary Search Tree	
+No Submission
+	
+Jul 30Jul 31 at 11:00PM
+Lab 10: Binary Search	
+2.0 / 2.0
+	
+Jul 23Jul 25 at 11:00PM
+Lab 09: Iterators	
+2.0 / 2.0
+	
+Jul 18Jul 23 at 11:00PM
+Lab 08: Linked Lists	
+No Submission
+	
+Jul 15Jul 16 at 11:00PM
+Assignment 04: Array List	
+No Submission
+	
+Jul 08Jul 15 at 11:00PM
+Lab 07: Exceptions and Templates	
+No Submission
+	
+Jul 10Jul 11 at 11:00PM
+Lab 06: Debugging	
+1.95 / 2.0
+	
+Jul 08Jul 09 at 11:00PM
+Exam 1, Part 1	
+9.5 / 10.0
+	
+Jul 03Jul 03 at 11:00AM
+Assignment 03: Dynamic Int Array List	
+25.0 / 28.0
+	
+Jun 24Jul 01 at 11:00PM
+Lab 05: Classes	
+2.0 / 2.0
+11 Hours, 51 Minutes Late
+	
+Jun 25Jun 26 at 11:00PM
+Late Due Date: Jun 28 at 11:00PM
+Assignment 02: Char Stack	
+20.0 / 20.0
+	
+Jun 17Jun 25 at 11:00PM
+Late Due Date: Jun 27 at 11:00PM
+Lab 04: Working with Files	
+2.0 / 2.0
+	
+Jun 18Jun 24 at 11:00PM
+Lab 03: Vectors	
+2.0 / 2.0
+	
+Jun 17Jun 18 at 11:00PM
+Assignment 01: Developing in C++	
+10.0 / 10.0
+	
+Jun 10Jun 17 at 11:00PM
+Lab 02: Developing with VS Code	
+2.0 / 2.0
+	
+Jun 11Jun 12 at 11:00PM
+Lab 01: Hello 232	
+2.0 / 2.0
+	
+Jun 10Jun 11 at 11:00PM
+Quiz 01: Introduction	
+10.0 / 10.0
+	
+Quiz 03: Structured Data	
+10.0 / 10.0
+	
+Quiz 02: Questions	
+10.0 / 10.0
+	
+Quiz 04: Queues	
+10.0 / 10.0
+	
+Quiz 05: Asymptotic Notation	
+10.0 / 10.0
+	
+Quiz 06: Stacks and Queues	
+10.0 / 10.0
+	
+Quiz 07: Work Day Participation	
+10.0 / 10.0
+	
+Quiz 08: Memory Diagram	
+10.0 / 10.0
+	
+Quiz 09: Rule of Five	
+7.6 / 10.0
+	
+Exam 1, Part 2	
+45.5 / 50.0
+	
+Quiz 10: Attend Guest Lecture	
+10.0 / 10.0
+	
+Quiz 11: Array List	
+10.0 / 10.0
+	
+Quiz 12: Linked List	
+10.0 / 10.0
+	
+Quiz 13: Bubble Sort Running Time	
+10.0 / 10.0
+	
+Exam 2, Part 2	
+No Submission
+	

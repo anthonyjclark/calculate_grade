@@ -1,0 +1,123 @@
+Skip to content
+gradescope
+CSC 325
+Algorithms and Advanced Data Structures
+
+    Dashboard
+    Regrade Requests
+
+Instructor
+
+    Anthony Clark
+
+Account
+CSC 325
+Spring 2019
+Description
+
+This course should be taken as soon as possible after CSC 232. Algorithms and advanced data structures, including graphs, heaps, self-adjusting data structures, set representations and dynamic programming. Sample applications, including memory management and data compression. Introduction to NP-complete problems. Correctness proofs and efficiency analysis are stressed. May be taught concurrently with CSC 611. Cannot receive credit for both CSC 611 and CSC 325.
+Assignments List
+Name	Status	ReleasedDue (CDT)
+Assignment 07, Hash Tables	
+19.0 / 20.0
+	
+Apr 26May 06 at 11:00PM
+Assignment 06, Minimum Spanning Trees	
+20.0 / 20.0
+	
+Apr 17Apr 25 at 11:00PM
+Assignment 05, Dijkstra's	
+20.0 / 20.0
+	
+Apr 10Apr 11 at 11:00PM
+Assignment 04, Friend Circles and Graphs	
+20.0 / 20.0
+	
+Mar 29Apr 03 at 11:00PM
+Assignment 03, Quicksort	
+25.0 / 25.0
+	
+Mar 04Mar 18 at 11:00PM
+Assignment 02, Master Theorem	
+16.4586 / 20.0
+	
+Feb 20Feb 27 at 11:00PM
+Assignment 01, Running Time and Time Complexity	
+15.0 / 15.0
+	
+Jan 28Feb 04 at 11:00PM
+Quiz 01, Introduction (2019-01-16)	
+10.0 / 10.0
+	
+Quiz 02, Loop Invariant and Merge (2019-01-23)	
+10.0 / 10.0
+	
+Quiz 03, Recursion Tree (2019-02-01)	
+10.0 / 10.0
+	
+Quiz 04, Closest Split Pair (2019-02-06)	
+9.5 / 10.0
+	
+Quiz 05, Master Theorem (2019-02-08)	
+10.0 / 10.0
+	
+Quiz 06, Master Theorem Proof (2019-02-11) 	
+10.0 / 10.0
+	
+Quiz 07, Probability Review (2019-02-15)	
+10.0 / 10.0
+	
+Quiz 08, Quicksort Partition (2019-02-20)	
+10.0 / 10.0
+	
+Quiz 09, Quicksort Running Time (2019-02-25)	
+10.0 / 10.0
+	
+Quiz 10, Quickselect (2019-02-27)	
+10.0 / 10.0
+	
+Quiz 11, Graph Search (2019-03-04)	
+10.0 / 10.0
+	
+Exam 1	
+46.2 / 50.0
+	
+Quiz 12, BFS (2019-03-22)	
+10.0 / 10.0
+	
+Quiz 13, Topological Ordering (2019-03-25)	
+10.0 / 10.0
+	
+Quiz 14, Strongly Connected Components (2019-03-27)	
+10.0 / 10.0
+	
+Quiz 15, Kosaraju's Algorithm (2019-03-29)	
+10.0 / 10.0
+	
+Quiz 16, Dijkstra's Example (2019-04-01)	
+9.5 / 10.0
+	
+Quiz 17, Heaps (2019-04-03)	
+10.0 / 10.0
+	
+Quiz 18, Binary Search Trees (2019-04-10)	
+10.0 / 10.0
+	
+Quiz 19, Red-Black Trees Insert (2019-04-12)	
+10.0 / 10.0
+	
+Quiz 20, Greedy Scheduling (2019-04-15)	
+10.0 / 10.0
+	
+Quiz 22, Hash Tables (2019-04-22)	
+10.0 / 10.0
+	
+Quiz 21, Minimum Spanning Tree (2019-04-15)	
+10.0 / 10.0
+	
+Exam 2, Part 1	
+9.0 / 10.0
+	
+Exam 2, Part 2	
+59.5 / 61.25
+	
