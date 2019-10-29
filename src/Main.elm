@@ -1,62 +1,49 @@
--- Press buttons to increment and decrement a counter.
---
--- Read how it works:
---   https://guide.elm-lang.org/architecture/buttons.html
---
-
+module Main exposing (main)
 
 import Browser
-import Html exposing (Html, button, div, text)
-import Html.Events exposing (onClick)
+import Html exposing (Html, button, div, text, textarea)
+import Html.Events exposing (onClick, onInput)
 
 
-
--- MAIN
-
-
-main =
-  Browser.sandbox { init = init, update = update, view = view }
+type alias Model =
+    { userData : String }
 
 
-
--- MODEL
-
-
-type alias Model = Int
-
-
-init : Model
-init =
-  0
-
-
-
--- UPDATE
+initialModel : Model
+initialModel =
+    { userData = "" }
 
 
 type Msg
-  = Increment
-  | Decrement
+  = Change String
+  | ResetForm
 
 
 update : Msg -> Model -> Model
 update msg model =
-  case msg of
-    Increment ->
-      model + 1
-
-    Decrement ->
-      model - 1
-
-
-
--- VIEW
+    case msg of
+        Change gradeData ->
+            { model | userData = gradeData }
+        ResetForm ->
+            { userData = "" }
 
 
 view : Model -> Html Msg
 view model =
-  div []
-    [ button [ onClick Decrement ] [ text "-" ]
-    , div [] [ text (String.fromInt model) ]
-    , button [ onClick Increment ] [ text "+" ]
-    ]
+    if model.userData == "" then
+        div [] [ textarea [ onInput Change ] [] ]
+    else
+        div []
+          [ button [ onClick ResetForm ] [ text "Reset" ]
+          , div [] [ text model.userData ]
+          ]
+
+
+
+main : Program () Model Msg
+main =
+    Browser.sandbox
+        { init = initialModel
+        , view = view
+        , update = update
+        }
